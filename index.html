@@ -96,53 +96,74 @@
             justify-content: center;
         }
         
-        /* UPDATED: Hero Section with Videos */
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 80px 20px;
-            background: linear-gradient(45deg, #fdf2f8, #fbcfe8);
-            border-radius: 20px;
+        /* Promotional Video Section */
+        .video-section {
             margin: 40px 0;
-            gap: 30px;
-            position: relative;
-            overflow: hidden;
-            min-height: 500px;
-        }
-        
-        .hero-video {
-            flex: 1;
-            max-width: 35%;
-            height: 400px;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .hero-video video {
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .promo-video {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .hero-content {
-            flex: 1;
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            max-width: 30%;
-            padding: 0 20px;
+            color: white;
+            padding: 20px;
+        }
+        
+        .video-overlay h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .video-overlay p {
+            font-size: 20px;
+            max-width: 600px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(45deg, #fdf2f8, #fbcfe8);
+            border-radius: 20px;
+            margin: 40px 0;
         }
         
         .hero h1 {
             font-size: 48px;
             color: #831843;
             margin-bottom: 20px;
-            line-height: 1.2;
         }
         
         .hero p {
             font-size: 20px;
             color: #666;
+            max-width: 600px;
             margin: 0 auto 30px;
         }
         
@@ -250,6 +271,16 @@
             border-top: 1px solid #eee;
         }
         
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+            animation: fadeIn 1s;
+        }
+        
         /* Modal Styles */
         .modal {
             display: none;
@@ -286,6 +317,32 @@
             font-size: 28px;
             cursor: pointer;
             color: #666;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            color: #831843;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .modal-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .modal-price {
+            color: #ec4899;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
         
         .payment-option {
@@ -506,38 +563,21 @@
             }
         }
         
-        /* UPDATED: Mobile responsiveness */
-        @media (max-width: 1024px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                min-height: auto;
-                padding: 60px 20px;
-            }
-            
-            .hero-video {
-                max-width: 80%;
-                height: 300px;
-                margin: 0 auto 30px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-                order: 2;
-            }
-            
-            .hero h1 {
-                font-size: 40px;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
+            .video-container {
+                height: 300px;
             }
             
-            .hero p {
-                font-size: 18px;
+            .video-overlay h2 {
+                font-size: 28px;
+            }
+            
+            .video-overlay p {
+                font-size: 16px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
             }
             
             .nav-links {
@@ -552,27 +592,8 @@
                 height: 40px;
             }
             
-            .hero-video {
-                max-width: 90%;
-                height: 250px;
-            }
-            
-            /* FIX: Better product cards on mobile */
             .products {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 20px;
-            }
-            
-            .product-card {
-                margin-bottom: 0;
-            }
-            
-            .product-title {
-                font-size: 18px;
-            }
-            
-            .product-price {
-                font-size: 22px;
             }
             
             .form-row {
@@ -580,50 +601,6 @@
             }
             
             .modal-content {
-                padding: 20px;
-                width: 95%;
-            }
-            
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-            
-            .cart-item-image {
-                width: 50px;
-                height: 50px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .hero p {
-                font-size: 16px;
-            }
-            
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 16px;
-            }
-            
-            .hero-video {
-                height: 200px;
-            }
-            
-            .products {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            
-            .product-image-container {
-                height: 220px;
-            }
-            
-            .product-content {
                 padding: 20px;
             }
         }
@@ -634,7 +611,7 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo-container">
-                    <div style="background: #ec4899; color: white; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 24px; font-weight: bold;">N</div>
+                    <img src="images/logo-nafas-enhanced.png" alt="Nafas Skincare Logo">
                     <span class="brand-name">Nafas Skincare</span>
                 </a>
                 <div class="nav-links">
@@ -651,34 +628,25 @@
     </header>
     
     <main class="container">
-        <!-- Date Display -->
-        <div style="text-align: right; color: #666; font-size: 14px; margin: 10px 0;" id="currentDate"></div>
+        <!-- First Promotional Video -->
+        <section class="video-section">
+            <div class="video-container">
+                <video class="promo-video" autoplay muted loop playsinline>
+                    <source src="videos/nafas-promo-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <h2>Experience Luxury in Every Drop</h2>
+                    <p>Discover our premium collection of natural fragrances and skincare, crafted with love and care in Lebanon</p>
+                    <a href="#products" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+        </section>
                 
-        <!-- UPDATED: Hero Section with Videos -->
         <section class="hero">
-            <div class="hero-video">
-                <!-- Left Video -->
-                <video autoplay muted loop playsinline>
-                    <source src="videos/left-video.mp4" type="video/mp4">
-                    <source src="videos/left-video.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            
-            <div class="hero-content">
-                <h1>Revitalize Your Senses</h1>
-                <p>Discover our exclusive collection of 30+ premium natural fragrances and skincare products, carefully crafted to enhance your daily ritual.</p>
-                <a href="#products" class="cta-button">Explore Collection</a>
-            </div>
-            
-            <div class="hero-video">
-                <!-- Right Video -->
-                <video autoplay muted loop playsinline>
-                    <source src="videos/right-video.mp4" type="video/mp4">
-                    <source src="videos/right-video.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
+            <h1>Revitalize Your Senses</h1>
+            <p>Discover our exclusive collection of 30+ premium natural fragrances and skincare products, carefully crafted to enhance your daily ritual.</p>
+            <a href="#products" class="cta-button">Explore Collection</a>
         </section>
         
         <section id="products">
@@ -688,9 +656,7 @@
                 <!-- Product 1 -->
                 <div class="product-card" data-name="Love Ritual Pheromone Body Mist 150 ml" data-price="15" data-image="images/love-ritual.jpg" data-description="An enchanting blend of rose, peach, musk & wood - your Love Ritual, a seductive timeless embrace with every spritz.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Love Ritual Body Mist
-                        </div>
+                        <img src="images/love-ritual.jpg" alt="Love Ritual Body Mist" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Love Ritual Pheromone Body Mist 150 ml</h3>
@@ -702,9 +668,7 @@
                 <!-- Product 2 -->
                 <div class="product-card" data-name="Passion Spell Pheromone Body Mist 150 ml" data-price="15" data-image="images/passion-spell.jpg" data-description="A captivating blend of citrus, pear and white musk. Passion Spell covers you with mysterious charm and irresistible allure.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Passion Spell Body Mist
-                        </div>
+                        <img src="images/passion-spell.jpg" alt="Passion Spell Body Mist" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Passion Spell Pheromone Body Mist 150 ml</h3>
@@ -716,9 +680,7 @@
                 <!-- Product 3 -->
                 <div class="product-card" data-name="Mystic Musk Body Oil 50 ml" data-price="15" data-image="images/mystic-musk.jpg" data-description="Pure radiant skin with every drop, can be used for sensitive areas.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Mystic Musk Body Oil
-                        </div>
+                        <img src="images/mystic-musk.jpg" alt="Mystic Musk Body Oil" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Mystic Musk Body Oil 50 ml</h3>
@@ -730,9 +692,7 @@
                 <!-- Product 4 -->
                 <div class="product-card" data-name="Cedar Body Oil 50 ml" data-price="15" data-image="images/cedar-oil.jpg" data-description="Cedarwood oil supports clear, balanced skin. Its antibacterial and antifungal properties help fight acne and protect the skin barrier. It tightens pores and controls excess oil, while its anti-inflammatory action soothes redness and irritation.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Cedar Body Oil
-                        </div>
+                        <img src="images/cedar-oil.jpg" alt="Cedar Body Oil" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Cedar Body Oil 50 ml</h3>
@@ -744,9 +704,7 @@
                 <!-- Product 5 -->
                 <div class="product-card" data-name="Green tea & Lemongrass Body Lotion 100 ml" data-price="15" data-image="images/green-tea-body-lotion.jpg" data-description="A refreshing fusion of green tea, lemongrass, and nourishing oils, your Vitality Ritual, an energizing touch of nature with every glow.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Green Tea Body Lotion
-                        </div>
+                        <img src="images/green-tea-body-lotion.jpg" alt="Green Tea Body Lotion" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Green tea & Lemongrass Body Lotion 100 ml</h3>
@@ -758,9 +716,7 @@
                 <!-- Product 6 -->
                 <div class="product-card" data-name="Musk Body Lotion 100 ml" data-price="15" data-image="images/musk-body-lotion.jpg" data-description="A sensual harmony of musk, almond, and soothing oils – your Serenity Ritual, a timeless touch of nature with every caress.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Musk Body Lotion
-                        </div>
+                        <img src="images/musk-body-lotion.jpg" alt="Musk Body Lotion" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Musk Body Lotion 100 ml</h3>
@@ -772,9 +728,7 @@
                 <!-- Product 7 -->
                 <div class="product-card" data-name="Ocean Spell Hair Treatment 100 ml" data-price="15" data-image="images/hair-treatment.jpg" data-description="A unique treatment for your hair, leaves hair silky smooth and repairs hair follicle. Shake well before use. Spray evenly on damp hair, focusing on mid-lengths and ends. Do not rinse. Blow-dry or style as usual.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Hair Treatment
-                        </div>
+                        <img src="images/hair-treatment.jpg" alt="Hair Treatment" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Ocean Spell Hair Treatment 100 ml</h3>
@@ -786,9 +740,7 @@
                 <!-- Product 8 -->
                 <div class="product-card" data-name="Tanning & Tightening Body Oil 250 ml" data-price="15" data-image="images/tanning-tightening.jpg" data-description="Natural oil with UV filter for a shining tan and for skin tightening at the same time.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Tanning & Tightening Oil
-                        </div>
+                        <img src="images/tanning-tightening.jpg" alt="Tanning & Tightening Body Oil" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Tanning & Tightening Body Oil 250 ml</h3>
@@ -800,9 +752,7 @@
                 <!-- Product 9 -->
                 <div class="product-card" data-name="Echo Perfume 100 ml" data-price="35" data-image="images/echo-perfume.JPG" data-description="High Concentrated perfume that lasts for 48 hours, a fearless blend of freedom and depth, Echo captures the tension between bold florals and sensual warmth. Lavender and orange blossom lead into a heart of jasmine and glowing white oud, grounded by creamy vanilla and musks. A signature scent that resonates long after the moment has passed.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Echo Perfume
-                        </div>
+                        <img src="images/echo-perfume.JPG" alt="Echo Perfume" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Echo Perfume 100 ml</h3>
@@ -814,9 +764,7 @@
                 <!-- Product 10 -->
                 <div class="product-card" data-name="Soul Perfume 100 ml" data-price="35" data-image="images/soul-perfume.JPG" data-description="High Concentrated perfume that lasts for 48 hours. A daring tribute to passion, Soul embodies intensity, elegance, and emotion in every note. A blend of velvety florals, sensual spices, and rich resins creates a fragrance that's unforgettable — an essence that lingers long after you've left the room.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Soul Perfume
-                        </div>
+                        <img src="images/soul-perfume.JPG" alt="Soul Perfume" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Soul Perfume 100 ml</h3>
@@ -828,9 +776,7 @@
                 <!-- Product 11 -->
                 <div class="product-card" data-name="White Flowers Diffuser 120 ml" data-price="10" data-image="images/white-flowers-diffuser.JPG" data-description="120 ml Diffuser, powerful scent. Scents: Jasmine, Gardenia & white flowers.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            White Flowers Diffuser
-                        </div>
+                        <img src="images/white-flowers-diffuser.JPG" alt="White Flowers Diffuser" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">White Flowers Diffuser 120 ml</h3>
@@ -842,9 +788,7 @@
                 <!-- Product 12 -->
                 <div class="product-card" data-name="Chamomile & Green Tea Face Soap 90g" data-price="4" data-image="images/chamomile-green-tea-soap.png" data-description="This special blend of 'Green Tea & Chamomile' calms and nourishes your skin, while green tea helps protect against impurities, leaving your complexion smooth, radiant, and naturally balanced.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Chamomile & Green Tea Soap
-                        </div>
+                        <img src="images/chamomile-green-tea-soap.png" alt="Chamomile & Green Tea Face Soap" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Chamomile & Green Tea Face Soap 90g</h3>
@@ -856,9 +800,7 @@
                 <!-- Product 13 -->
                 <div class="product-card" data-name="Rosemary Rush Hair Soap 90g" data-price="4" data-image="images/rosemary-rush-soap.jpg" data-description="Refresh and renew your skin with 'Rosemary Rush', our organic face soap bar crafted with pure rosemary extracts and essential oils. Known for its cleansing and purifying qualities, rosemary helps gently lift away impurities, leaving your skin feeling fresh, balanced, and revitalized.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Rosemary Rush Soap
-                        </div>
+                        <img src="images/rosemary-rush-soap.jpg" alt="Rosemary Rush Hair Soap" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Rosemary Rush Hair Soap 90g</h3>
@@ -870,9 +812,7 @@
                 <!-- Product 14 -->
                 <div class="product-card" data-name="Sea Salt Body Soap 90g" data-price="4" data-image="images/sea-salt-soap.jpg" data-description="Sea Salts — an organic soap bar crafted with mineral-rich sea salts and pure essential oils. Designed to gently exfoliate and cleanse, this soap helps detoxify your skin, promoting a smooth and refreshed feel. Enjoy the calming, ocean-inspired scent as you revitalize your skin with each use.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Sea Salt Body Soap
-                        </div>
+                        <img src="images/sea-salt-soap.jpg" alt="Sea Salt Body Soap" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Sea Salt Body Soap 90g</h3>
@@ -884,9 +824,7 @@
                 <!-- Product 15 -->
                 <div class="product-card" data-name="Musk Refuge Body Soap 90g" data-price="4" data-image="images/musk-refuge-soap.jpg" data-description="Experience rejuvenation with 'Musk Refuge', our fancy organic soap bar, expertly crafted with natural ingredients for a harmonious balance of your skin texture and a long lasting fragrance.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Musk Refuge Soap
-                        </div>
+                        <img src="images/musk-refuge-soap.jpg" alt="Musk Refuge Body Soap" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Musk Refuge Body Soap 90g</h3>
@@ -898,9 +836,7 @@
                 <!-- Product 16 -->
                 <div class="product-card" data-name="Honey Leefah Body Soap 90g" data-price="6" data-image="images/honey-leefah.jpg" data-description="Discover the gentle exfoliation and hydration of 'Honey Leefah', our organic body soap bar, blending natural loofah and honey for a luxurious and invigorating cleansing experience.">
                     <div class="product-image-container">
-                        <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f0f0f0; color: #666; font-size: 14px;">
-                            Honey Leefah Soap
-                        </div>
+                        <img src="images/honey-leefah.jpg" alt="Honey Leefah Body Soap" class="product-image">
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Honey Leefah Body Soap 90g</h3>
@@ -912,87 +848,27 @@
         </section>
     </main>
     
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="container" style="margin: 60px auto;">
-        <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-            <h2 style="text-align: center; color: #831843; margin-bottom: 40px; font-size: 32px;">Get In Touch</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-                <!-- Contact Info -->
-                <div>
-                    <h3 style="color: #ec4899; margin-bottom: 20px; font-size: 24px;">📍 Contact Information</h3>
-                    <div style="display: flex; align-items: start; gap: 15px; margin-bottom: 20px;">
-                        <div style="background: #fce7f3; padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                            📍
-                        </div>
-                        <div>
-                            <p style="font-weight: bold; margin-bottom: 5px;">Main Office</p>
-                            <p style="color: #666;">Jounieh<br>Lebanon</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: start; gap: 15px; margin-bottom: 20px;">
-                        <div style="background: #fce7f3; padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                            📞
-                        </div>
-                        <div>
-                            <p style="font-weight: bold; margin-bottom: 5px;">Phone & Email</p>
-                            <p style="color: #666;">+961-70-866 882<br>nafas.aesthetic@gmail.com</p>
-                        </div>
-                    </div>
-                    
-                    <div style="display: flex; align-items: start; gap: 15px;">
-                        <div style="background: #fce7f3; padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                            ⏰
-                        </div>
-                        <div>
-                            <p style="font-weight: bold; margin-bottom: 5px;">Business Hours</p>
-                            <p style="color: #666;">Mon-Fri: 9AM-9PM<br>Sat-Sun: 11AM-9PM</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contact Form -->
-                <div>
-                    <h3 style="color: #ec4899; margin-bottom: 20px; font-size: 24px;">✉️ Send Us a Message</h3>
-                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 15px;">
-                        <input type="text" placeholder="Your Full Name" required 
-                               style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
-                        
-                        <input type="email" placeholder="Your Email Address" required 
-                               style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
-                        
-                        <input type="text" placeholder="Subject" 
-                               style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
-                        
-                        <textarea placeholder="Your Message..." rows="5" required 
-                                  style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
-                        
-                        <button type="submit" 
-                                style="background: #ec4899; color: white; padding: 16px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.3s;">
-                            Send Message
-                        </button>
-                    </form>
+    <!-- Second Promotional Video -->
+    <section class="container">
+        <div class="video-section">
+            <div class="video-container">
+                <video class="promo-video" autoplay muted loop playsinline>
+                    <source src="videos/nafas-how-to-use.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <h2>How to Use Our Products</h2>
+                    <p>Learn the best techniques to maximize the benefits of our premium skincare collection</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <footer>
-        <div class="container" style="text-align: center;">
-            <p style="color: #666; font-size: 16px;">© 2025 Nafas Skincare. All rights reserved.</p>
-            <p style="color: #888; margin-top: 10px; font-size: 14px;">Premium natural fragrances crafted with care</p>
-            <p style="color: #aaa; margin-top: 5px; font-size: 12px;">Free shipping on orders over $50</p>
-        </div>
-    </footer>
-
     <!-- Product Modal -->
     <div id="productModal" class="modal">
         <div class="modal-content">
-            <button class="modal-close product-modal-close">&times;</button>
-            <div id="modalImage" style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; background: #f0f0f0; margin-bottom: 20px; color: #666; border-radius: 10px;">
-                Product Image
-            </div>
+            <button class="modal-close">&times;</button>
+            <img id="modalImage" src="" alt="" class="modal-image">
             <h2 id="modalTitle" class="modal-title"></h2>
             <p id="modalDescription" class="modal-description"></p>
             <p id="modalPrice" class="modal-price"></p>
@@ -1009,7 +885,7 @@
     <!-- Cart Modal -->
     <div id="cartModal" class="modal">
         <div class="modal-content">
-            <button class="modal-close cart-modal-close">&times;</button>
+            <button class="modal-close">&times;</button>
             <h2 class="modal-title">🛒 Your Shopping Cart</h2>
             
             <div id="cartStep1" class="checkout-step active">
@@ -1110,6 +986,80 @@
             </div>
         </div>
     </div>
+    
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="container" style="margin: 60px auto;">
+        <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+            <h2 style="text-align: center; color: #831843; margin-bottom: 40px; font-size: 32px;">Get In Touch</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <!-- Contact Info -->
+                <div>
+                    <h3 style="color: #ec4899; margin-bottom: 20px; font-size: 24px;">📍 Contact Information</h3>
+                    <div style="display: flex; align-items: start; gap: 15px; margin-bottom: 20px;">
+                        <div style="background: #fce7f3; padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                            📍
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; margin-bottom: 5px;">Main Office</p>
+                            <p style="color: #666;">Jounieh<br>Lebanon</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: start; gap: 15px; margin-bottom: 20px;">
+                        <div style="background: #fce7f3; padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                            📞
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; margin-bottom: 5px;">Phone & Email</p>
+                            <p style="color: #666;">+961-70-866 882<br>nafas.aesthetic@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <div style="background: #fce7f3; padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                            ⏰
+                        </div>
+                        <div>
+                            <p style="font-weight: bold; margin-bottom: 5px;">Business Hours</p>
+                            <p style="color: #666;">Mon-Fri: 9AM-9PM<br>Sat-Sun: 11AM-9PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 style="color: #ec4899; margin-bottom: 20px; font-size: 24px;">✉️ Send Us a Message</h3>
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" placeholder="Your Full Name" required 
+                               style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
+                        
+                        <input type="email" placeholder="Your Email Address" required 
+                               style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
+                        
+                        <input type="text" placeholder="Subject" 
+                               style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px;">
+                        
+                        <textarea placeholder="Your Message..." rows="5" required 
+                                  style="padding: 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; resize: vertical;"></textarea>
+                        
+                        <button type="submit" 
+                                style="background: #ec4899; color: white; padding: 16px; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: background 0.3s;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container" style="text-align: center;">
+            <p style="color: #666; font-size: 16px;">© 2025 Nafas Skincare. All rights reserved.</p>
+            <p style="color: #888; margin-top: 10px; font-size: 14px;">Premium natural fragrances crafted with care</p>
+            <p style="color: #aaa; margin-top: 5px; font-size: 12px;">Free shipping on orders over $50</p>
+        </div>
+    </footer>
 
     <script>
         // ============================================
@@ -1120,14 +1070,6 @@
         
         // Shopping Cart System
         let cart = JSON.parse(localStorage.getItem('nafasCart')) || [];
-        
-        // Display current date
-        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
         
         // Update cart count
         function updateCartCount() {
@@ -1204,9 +1146,7 @@
                 const itemElement = document.createElement('div');
                 itemElement.className = 'cart-item';
                 itemElement.innerHTML = `
-                    <div style="width: 60px; height: 60px; background: #f0f0f0; display: flex; align-items: center; justify-content: center; margin-right: 15px; border-radius: 5px; color: #666; font-size: 12px;">
-                        Product
-                    </div>
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                     <div class="cart-item-details">
                         <div class="cart-item-name">${item.name}</div>
                         <div class="cart-item-price">$${item.price} x ${item.quantity} = $${itemTotal.toFixed(2)}</div>
@@ -1229,7 +1169,6 @@
         
         function closeCartModal() {
             document.getElementById('cartModal').style.display = 'none';
-            document.getElementById('productModal').style.display = 'none';
             showStep('cartStep1');
         }
         
@@ -1273,13 +1212,15 @@
             return `NAFAS-${timestamp}-${random}`;
         }
         
-        // Checkout Form Submission
+        // ============================================
+        // CHECKOUT FORM SUBMISSION - SEND TO GOOGLE SCRIPT
+        // ============================================
         document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             // Collect form data
             const orderData = {
-                formType: 'order',
+                formType: 'order',  // Tell Google Script it's an order
                 orderId: generateOrderId(),
                 customer: {
                     name: document.getElementById('fullName').value,
@@ -1304,7 +1245,7 @@
             
             try {
                 // Send to Google Apps Script
-                await fetch(GOOGLE_SCRIPT_URL, {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
                     headers: {
@@ -1345,12 +1286,14 @@
             }
         });
         
-        // Contact Form Submission
+        // ============================================
+        // CONTACT FORM SUBMISSION - SEND TO GOOGLE SCRIPT
+        // ============================================
         document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const contactData = {
-                formType: 'contact',
+                formType: 'contact',  // Tell Google Script it's a contact form
                 name: this.querySelector('input[type="text"]').value,
                 email: this.querySelector('input[type="email"]').value,
                 subject: this.querySelector('input[placeholder="Subject"]').value,
@@ -1394,10 +1337,12 @@
         document.getElementById('cartIcon').addEventListener('click', openCartModal);
         
         // Product modal
-        const productModal = document.getElementById('productModal');
+        const modal = document.getElementById('productModal');
+        const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('modalTitle');
         const modalDescription = document.getElementById('modalDescription');
         const modalPrice = document.getElementById('modalPrice');
+        const modalClose = document.querySelector('.modal-close');
         const modalBuyButton = document.getElementById('modalBuyButton');
         
         // Open modal when product card is clicked
@@ -1407,33 +1352,27 @@
                 
                 const name = this.getAttribute('data-name');
                 const price = this.getAttribute('data-price');
+                const image = this.getAttribute('data-image');
                 const description = this.getAttribute('data-description');
                 
+                modalImage.src = image;
                 modalTitle.textContent = name;
                 modalDescription.textContent = description;
                 modalPrice.textContent = `$${price}.00`;
                 
                 modalBuyButton.onclick = () => {
-                    productModal.style.display = 'none';
-                    addToCart(name, parseFloat(price), 'product-image');
+                    modal.style.display = 'none';
+                    addToCart(name, parseFloat(price), image);
                 };
                 
-                productModal.style.display = 'flex';
+                modal.style.display = 'flex';
             });
         });
         
         // Close modals
-        document.querySelectorAll('.modal-close').forEach(closeBtn => {
-            closeBtn.addEventListener('click', function() {
-                this.closest('.modal').style.display = 'none';
-            });
-        });
-        
-        // Close modal when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.style.display = 'none';
-            });
+        modalClose.addEventListener('click', () => modal.style.display = 'none');
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.style.display = 'none';
         });
         
         // Add to cart buttons
@@ -1444,8 +1383,9 @@
                 const productCard = this.closest('.product-card');
                 const productName = productCard.getAttribute('data-name');
                 const productPrice = parseFloat(productCard.getAttribute('data-price'));
+                const productImage = productCard.getAttribute('data-image');
                 
-                addToCart(productName, productPrice, 'product-image');
+                addToCart(productName, productPrice, productImage);
                 
                 // Button feedback
                 this.textContent = 'Added!';
@@ -1476,9 +1416,8 @@
         });
         
         console.log("🌟 Nafas Skincare website loaded!");
-        console.log("🎥 Videos: Left & Right of hero text");
-        console.log("📱 Mobile responsive design fixed");
-        console.log("🛒 Shopping cart working");
+        console.log("🛒 16 products ready!");
+        console.log("🎥 2 promotional videos included!");
         console.log("📧 Forms connected to Google Apps Script");
     </script>
 </body>
