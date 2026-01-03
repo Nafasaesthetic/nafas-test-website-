@@ -542,8 +542,54 @@
             
             .modal-content {
                 padding: 20px;
-            }
-        }
+           /* ===== NEW CSS FOR HERO VIDEOS ===== */
+.hero-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.hero-text-center {
+    flex: 0 1 600px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-video-container {
+    flex: 0 1 300px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+/* Responsive Design: Stack on mobile */
+@media (max-width: 768px) {
+    .hero-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hero-video-container {
+        flex: 0 1 auto;
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    .hero-text-center {
+        order: -1; /* Puts text above videos on mobile */
+    }
+}
     </style>
     
     <!-- ============================================ -->
@@ -608,12 +654,35 @@
     
     <main class="container">
                
-        <section class="hero">
+       <section class="hero">
+    <!-- New container for video + text + video layout -->
+    <div class="hero-content-wrapper">
+        <!-- Left Video -->
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <!-- REPLACE THIS URL WITH YOUR LEFT VIDEO LINK -->
+                <source src="https://drive.google.com/file/d/1Sy89DOX57IsHmJoBAyyTaTfSgpByScEG/view?usp=drive_link.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Center Text (Existing Content) -->
+        <div class="hero-text-center">
             <h1>Revitalize Your Senses</h1>
-            <!-- UPDATED TEXT -->
             <p>Discover premium <strong>pheromone body mists</strong>, natural perfume oils, organic soap bars, and musk-infused skincare. Luxury natural fragrances crafted in Lebanon.</p>
             <a href="#products" class="cta-button">Explore Collection</a>
-        </section>
+        </div>
+
+        <!-- Right Video -->
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <!-- REPLACE THIS URL WITH YOUR RIGHT VIDEO LINK -->
+                <source src="https://drive.google.com/file/d/18yIahgCrB7AGAatybBHLszvpgtcWAbJb/view?usp=drive_link.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
         
         <section id="products">
             <h2 style="font-size: 32px; margin-bottom: 30px; color: #831843; text-align: center;">Our Signature Products</h2>
